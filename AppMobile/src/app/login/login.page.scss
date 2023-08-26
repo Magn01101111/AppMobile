@@ -10,3 +10,11 @@ ion-select{
 .background-image{
   --background: url(../../assets/img/Walter_White2.png) 0 0/100% 100% no-repeat;
 }
+.sc-ion-input-md-h {
+  --color: white
+}
+label {
+  cursor: default;
+  color: white;
+  --color: white;
+}

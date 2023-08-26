@@ -13,7 +13,7 @@ export class ProductModel {
     static crearProduct(event: {
         sku: string,
         name: string,
-        product_enabled: string
+        product_enabled: boolean
     }){
         return {
             sku: event.sku,
