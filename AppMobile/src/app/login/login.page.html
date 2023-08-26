@@ -1,0 +1,45 @@
+<!--<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+<ion-content [fullscreen]="true" class="background-image">
+  <ion-grid>
+    <ion-row style="padding-top: 30%">
+      <ion-col style="text-align: center;">
+        <h1 style="color: white; margin: auto">Login</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col class="borderLogin">
+        <ion-item>
+          <ion-input value="jgomez" [(ngModel)]="userLoginModal.email" label="Correo electrónico" label-placement="floating" placeholder="prueba@duocuc.cl"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input value="jorge123" [(ngModel)]="userLoginModal.password" label="Contraseña" label-placement="floating" placeholder="*******"></ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-select label="Seleccione Pais" placeholder="Chile">
+            <ion-select-option *ngFor="let pais of paises" [value]="pais">{{pais}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+    <ion-row style="padding-top: 3vh">
+      <ion-col size="2"></ion-col>
+      <ion-col>
+        <ion-button (click)="userLogin(userLoginModal)" color="primary" shape="round" expand="full"> Iniciar Sesión</ion-button>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col>
+        <ion-button  color="secondary" shape="round" expand="full"> Registrate </ion-button>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
