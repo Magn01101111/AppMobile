@@ -1,4 +1,4 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
+import {Component, EnvironmentInjector, inject, Input} from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class TabsPage {
+
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {}

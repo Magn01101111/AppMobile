@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -7,6 +7,7 @@ import { Paises } from "../constants/constants";
 import {IUserLogin} from "../models/IUserLogin";
 import {NavigationExtras, Router} from "@angular/router";
 import { ProductModel } from '../models/IProductModel';
+import {IUser} from "../models/IUser";
 
 @Component({
   selector: 'app-login',
@@ -16,32 +17,18 @@ import { ProductModel } from '../models/IProductModel';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginPage implements OnInit {
-  listUser: UserModel[] = [
-    new UserModel(1,'19015515','jgomez@gmail.com','Jorge','Escobar','ADMIN',true,'99551122','La Locura Street','123'),
-    new UserModel(2,'18015515','jperez@gmail.com','Juan','Perez','USUARIO',true,'99551122','LaLocura Street','123'),
-    new UserModel(3,'17015515','cgomez@gmail.com','Carlos','Rubio','USUARIO',true,'99551122','La Locura Street','123'),
-    new UserModel(4,'16015515','vgomez@gmail.com','Valentina','Caviedes','ADMIN', true,'99551122','La Locura Street','123')
+  @Output () valueResponse: IUser | undefined
+  listUser: UserModel[]  = [
+    new UserModel('19015510','1','Jorge','Escobar','User',true,'995755731','La Locura Street','123',true),
+    new UserModel('18783391','spla@gmail.com','Sergio','Plaza','User',true,'995755721','La Demencia Street','123',true),
+    new UserModel('11111111','drub@gmail.com','David','Rubio','User',true,'995755711','La Joker Street','123',false),
+    new UserModel('22222222','ncav@gmail.com','Nicolas','Caviedes','User',true,'995755701','La Pizza Street','123',false)
   ];
-  listProduct: ProductModel[] =[
-    new ProductModel(1, 11, 'Pan', 'Bimbo', true),
-    new ProductModel(2, 12, 'Aceite', 'Bimbo', true),
-    new ProductModel(3, 13, 'Queso', 'Bimbo', true),
-    new ProductModel(4, 14, 'Fiambre', 'Bimbo', true),
-    new ProductModel(5, 15, 'Agua', 'Bimbo', true),
-    new ProductModel(6, 16, 'Bebida', 'Bimbo', true),
-    new ProductModel(7, 17, 'Jugo', 'Bimbo', true),
-    new ProductModel(8, 18, 'Gato', 'Bimbo', true),
-    new ProductModel(9, 19, 'Perro', 'Bimbo', true)
-
-  ]
   userLoginModal: IUserLogin = {
     email: '',
     password: ''
   };
   paises = Paises
-
-
-
   constructor(private route: Router) { }
 
   ngOnInit() {
@@ -52,25 +39,27 @@ export class LoginPage implements OnInit {
     for(let i = 0; i < this.listUser.length; i++){
       if((this.listUser[i].email == userLoginInfo.email) && (this.listUser[i].password == userLoginInfo.password)){
         console.log('User Loged...', this.userLoginModal.email, this.userLoginModal.password);
+        this.valueResponse = this.listUser[i]
         let userInfoSend: NavigationExtras = {
           state: {
             user: this.listUser[i]
           }
         }
-        if(this.listUser[i].user_type == 'USUARIO'){
+        console.log('userInfoSend ',userInfoSend)
+        if(this.listUser[i].user_type == 'User'){
           let sendInfo = this.route.navigate(['/tabs/tab1'], userInfoSend);
-          console.log(sendInfo)
+          console.log('sendInfo ',sendInfo)
           return true;
         }else{
           let sendInfo = this.route.navigate(['/tabs/tab1'], userInfoSend);
-          console.log(sendInfo)
+          console.log('sendInfo ',sendInfo)
           return true;
         }
       }
+      console.log()
     }
     this.userLoginModalRestart();
     return false;
-
   }
 
   userLoginModalRestart(): void{
