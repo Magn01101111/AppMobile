@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { IUser } from '../models/IUser';
 
 @Component({
   selector: 'app-tab2',
@@ -11,6 +13,25 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
 })
 export class Tab2Page {
 
-  constructor() {}
+  data?: IUser;
+
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    ////TEST////
+    const userType = this.activeRoute.snapshot.queryParamMap.get('user_type')
+    this.activeRoute.paramMap.subscribe(res => {
+    });
+    console.log('asd ', userType)
+    ////TEST////
+
+    this.activeRoute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.data = this.router.getCurrentNavigation()?.extras.state?.['user'];
+        console.log('this.data ',this.data)
+      }
+    });
+  }
 
 }
