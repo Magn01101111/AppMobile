@@ -1,3 +1,6 @@
+import {CarModel} from "./CarModel/CarModel";
+import {ViajeModel} from "./ViajeModel/ViajeModel";
+
 export interface IUser {
   rut: string,
   email: string,
@@ -9,4 +12,6 @@ export interface IUser {
   address: string,
   password: string,
   tiene_auto: boolean,
+  vehiculo?: CarModel,
+  viajes? : ViajeModel[]
 }

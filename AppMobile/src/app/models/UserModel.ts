@@ -1,3 +1,5 @@
+import {ViajeModel} from "./ViajeModel/ViajeModel";
+
 export class UserModel {
   constructor(
     public rut: string,
@@ -9,22 +11,10 @@ export class UserModel {
     public phone: string,
     public address: string,
     public password: string,
-    public tiene_auto: boolean
+    public tiene_auto: boolean,
+    /*public viajes: ViajeModel[]*/
   ) {
   }
-    /*constructor(
-        public id: number,
-        public rut: string,
-        public email: string,
-        public name: string,
-        public last_name: string,
-        public user_type: string,
-        public user_enabled: boolean,
-        public phone: string,
-        public address: string,
-        public password: string,
-    ) {
-    }*/
 
     //Metodo dentro de la clase para crear usuario. EJEMPLO solamente.
     static crearUsuario(event: {

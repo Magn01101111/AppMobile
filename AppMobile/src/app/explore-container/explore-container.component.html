@@ -1,13 +1,19 @@
-<div id="container">
-  <strong>{{ name }}</strong>
-  <p>
-    Explore
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://ionicframework.com/docs/components"
-      >UI Components</a
-    >
-  </p>
-</div>
-<ion-button > AHHHHHH</ion-button>
+<ion-grid>
+  <ion-card>
+    <ion-card-header><strong class="ion-text-center" style="font-size: large">{{ user?.name }} {{user?.last_name}}</strong></ion-card-header>
+    <ion-card-content>email: {{ user?.email }}</ion-card-content>
+    <ion-card-content>rut: {{ user?.rut }} </ion-card-content>
+    <ion-card-content>dirección: {{ user?.address }} </ion-card-content>
+    <ion-card-content>teléfono: {{ user?.phone }} </ion-card-content>
+    <ion-card-content *ngIf="user?.tiene_auto === true">
+      Posee auto? Si
+    </ion-card-content>
+    <ion-card-content *ngIf="user?.tiene_auto === false">
+      Posee auto? No
+    </ion-card-content>
+    <ion-card-content *ngIf="user?.user_enabled === true"> usuario habilitado </ion-card-content>
+    <ion-card-content *ngIf="user?.user_enabled === false"> usuario no habilitado </ion-card-content>
+    <ion-card-content> viajes {{ user?.viajes }} </ion-card-content>
+  </ion-card>
+</ion-grid>
+
