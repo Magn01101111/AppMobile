@@ -7,7 +7,7 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'login',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage),
   },
   {
@@ -15,10 +15,11 @@ export const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
   },
   {
+    path: 'register',
+    loadComponent: () => import('./register/register.page').then( m => m.RegisterPage)
+  },
+  {
     path: '**',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage),
   },
-
-
-
 ];

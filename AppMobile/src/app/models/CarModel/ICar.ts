@@ -1,8 +1,7 @@
-import {UserModel} from "../UserModel";
+import {IUser} from "../IUser";
 
 export interface ICar {
   marca: string,
-  owner: UserModel,
-  asientos_disp: number,
+  owner: IUser,
   disponible: boolean,
 }

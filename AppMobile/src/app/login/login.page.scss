@@ -4,11 +4,15 @@
 ion-item{
   --background: rgba(255, 255, 255, 0.07);
 }
-ion-select{
+/*ion-select{
   display: -webkit-box;
-}
+}*/
 .background-image{
-  --background: url(../../assets/img/Walter_White2.png) 0 0/100% 100% no-repeat;
+ /* --background: url(../../assets/img/1517046331426.jpg) 0 0/100% 20% no-repeat;
+  --color: white;
+  color: white;*/
+  --background: gray;
+
 }
 .sc-ion-input-md-h {
   --color: white
@@ -18,3 +22,10 @@ label {
   color: white;
   --color: white;
 }
+/*ion-header{
+  box-shadow: none;
+  ion-toolbar{
+    --background: url(../../assets/img/1517046331426.jpg) 0 0/100% 100% no-repeat;
+  }
+}*/
+

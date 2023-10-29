@@ -12,19 +12,12 @@ import {ActivatedRoute, Router} from "@angular/router";
   imports: [IonicModule, ExploreContainerComponent],
 })
 export class Tab1Page {
-  data?: IUser;
+  data?: IUser
 
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router
   ) {
-    ////TEST////
-    const userType = this.activeRoute.snapshot.queryParamMap.get('user_type')
-    this.activeRoute.paramMap.subscribe(res => {
-    });
-    console.log('asd ', userType)
-    ////TEST////
-
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.data = this.router.getCurrentNavigation()?.extras.state?.['user'];

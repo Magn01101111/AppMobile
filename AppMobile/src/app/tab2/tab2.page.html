@@ -1,17 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Pagina de usuario conductor
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Pagina de administrador</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <app-explore-container name="Pagina de usuario conductor" [user]="data"></app-explore-container>
 
-  <app-explore-container name="Pagina de administrador" [user]="data"></app-explore-container>
 </ion-content>

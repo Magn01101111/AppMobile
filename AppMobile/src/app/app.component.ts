@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "@angular/fire/firestore";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import {getFirestore} from "@angular/fire/firestore";
   standalone: true,
   imports: [IonicModule,
     CommonModule,
+    ReactiveFormsModule
   ],
 })
 export class AppComponent {

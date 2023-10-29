@@ -6,7 +6,8 @@ export class ViajeModel {
     public pasajero: IUser,
     public precio: number,
     public origen: string,
-    public destino: string
+    public destino: string,
+     public asientos_disp: number
   ) {
   }
 

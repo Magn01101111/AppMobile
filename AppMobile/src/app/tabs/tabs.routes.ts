@@ -24,6 +24,21 @@ export const routes: Routes = [
           import('../tab3/tab3.page').then((m) => m.Tab3Page),
       },
       {
+        path: 'tab1/crear-viaje',
+        loadComponent: () =>
+          import('../tab1/crear-viaje/crear-viaje.component').then((m) => m.CrearViajeComponent),
+      },
+      {
+        path: 'tab1/crear-vehiculo',
+        loadComponent: () =>
+          import('../tab1/crear-vehiculo/crear-vehiculo.component').then((m) => m.CrearVehiculoComponent),
+      },
+      {
+        path: 'tab1/ver-vehiculos',
+        loadComponent: () =>
+          import('../tab1/ver-vehiculos/ver-vehiculos.page').then((m) => m.VerVehiculosPage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',

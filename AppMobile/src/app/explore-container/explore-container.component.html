@@ -1,4 +1,4 @@
-<ion-grid>
+<ion-grid class="ion-padding">
   <ion-card>
     <ion-card-header><strong class="ion-text-center" style="font-size: large">{{ user?.name }} {{user?.last_name}}</strong></ion-card-header>
     <ion-card-content>email: {{ user?.email }}</ion-card-content>
@@ -6,7 +6,7 @@
     <ion-card-content>dirección: {{ user?.address }} </ion-card-content>
     <ion-card-content>teléfono: {{ user?.phone }} </ion-card-content>
     <ion-card-content *ngIf="user?.tiene_auto === true">
-      Posee auto? Si
+      <ion-button shape="round" size="small" color="success" (click)="verVehiculos()">Ver vehículos</ion-button>
     </ion-card-content>
     <ion-card-content *ngIf="user?.tiene_auto === false">
       Posee auto? No
@@ -15,5 +15,28 @@
     <ion-card-content *ngIf="user?.user_enabled === false"> usuario no habilitado </ion-card-content>
     <ion-card-content> viajes {{ user?.viajes }} </ion-card-content>
   </ion-card>
+
+  <ng-template *ngIf="user?.tiene_auto; then conductor; else estudiante"></ng-template>
+
+  <ng-template #conductor>
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-button (click)="crearVehiculo()" shape="round" color="warning">Crear vehículo</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="crearViaje()" shape="round" color="success">Crear viaje</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ng-template>
+
+  <ng-template #estudiante>
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-button shape="round" color="success">Buscar viajes</ion-button>
+      </ion-col>
+    </ion-row>
+  </ng-template>
+
 </ion-grid>
 
