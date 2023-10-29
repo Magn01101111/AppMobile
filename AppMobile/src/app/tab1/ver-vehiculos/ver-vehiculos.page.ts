@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UtilsService} from "../../services/utils.service";
 import {FirebaseService} from "../../services/firebase.service";
 import {IUser} from "../../models/IUser";
+import {ICar} from "../../models/CarModel/ICar";
 
 @Component({
   selector: 'app-ver-vehiculos',
@@ -16,21 +17,24 @@ import {IUser} from "../../models/IUser";
 })
 export class VerVehiculosPage implements OnInit {
   activeRoute = inject(ActivatedRoute)
-  router= inject(Router)
+  router = inject(Router)
   utilService = inject(UtilsService)
   firebaseService = inject(FirebaseService)
-  conductor?: IUser
+  vehiculo?: ICar[]
+  user?: IUser
 
   constructor() {
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
-        this.conductor = this.router.getCurrentNavigation()?.extras.state?.['user'];
-        console.log('this.conductor ',this.conductor)
+        this.vehiculo = this.router.getCurrentNavigation()?.extras.state?.['user'];
+        console.log('this.vehiculos ', this.vehiculo)
       }
     });
   }
 
-  ngOnInit() {
-  }
+  async ngOnInit() {
+    let preferences: any = await (this.utilService.getFromLocalStorage('user'))
+    this.user = JSON.parse(preferences)
 
+  }
 }

@@ -3,7 +3,7 @@ import {IUser} from "../IUser";
 export interface IViaje {
   estado: number,
   pasajero: IUser[],
-  owner: IUser,
+  conductor: IUser,
   asientos_disp: number,
   precio: number,
   origen: string,
