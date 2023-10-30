@@ -3,6 +3,7 @@ import {IonicModule} from '@ionic/angular';
 import {ExploreContainerComponent} from '../explore-container/explore-container.component';
 import {IUser} from "../models/IUser";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UtilsService} from "../services/utils.service";
 
 @Component({
   selector: 'app-tab1',
@@ -16,12 +17,20 @@ export class Tab1Page {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private utilService: UtilsService
   ) {
-    this.activeRoute.queryParams.subscribe(params => {
+    this.activeRoute.queryParams.subscribe(async params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
+        console.log('entró getCurrentNavigation()?.extras.state')
         this.data = this.router.getCurrentNavigation()?.extras.state?.['user'];
-        console.log('this.data ',this.data)
+        console.log('this.data ', this.data)
+      } else {
+        console.log('entró else ')
+        let user: any = (await this.utilService.getFromLocalStorage('user'))
+        this.data = JSON.parse(user)
+        //let user = JSON.parse(preferences)
+        console.log('this.data ', this.data)
       }
     });
   }

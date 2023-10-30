@@ -17,6 +17,10 @@ export class FirebaseService {
 
   //constructor() { }
 
+  getAuth(){
+    return getAuth()
+  }
+
   signIn(user: IUserLogin) {
     return signInWithEmailAndPassword(getAuth(), <string>user.email, <string>user.password)
   }
