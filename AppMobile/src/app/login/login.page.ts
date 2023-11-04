@@ -165,7 +165,7 @@ export class LoginPage implements OnInit {
         position: "middle",
         icon: 'person-circle-outline'
       })
-      this.entrar(res)
+      await this.entrar(res)
       //let preferences: any = await (this.utilService.getFromLocalStorage('user'))
       //let user = JSON.parse(preferences)
 
