@@ -22,4 +22,13 @@ export const routes: Routes = [
     path: '**',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage),
   },
+  {
+    path: 'ver-viajes',
+    loadComponent: () => import('./tab1/ver-viajes/ver-viajes.page').then( m => m.VerViajesPage)
+  },
+  {
+    path: 'informacion-viaje',
+    loadComponent: () => import('./tab1/informacion-viaje/informacion-viaje.page').then(m => m.InformacionViajePage)
+  },
+
 ];

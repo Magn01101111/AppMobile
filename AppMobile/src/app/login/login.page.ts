@@ -107,7 +107,7 @@ export class LoginPage implements OnInit {
           duration: 2000,
           animated: true,
           color: "primary",
-          position: "middle",
+          position: "bottom",
           icon: 'alert-circle-outline'
         })
         console.log(error)
@@ -162,12 +162,10 @@ export class LoginPage implements OnInit {
         duration: 2000,
         animated: true,
         color: "primary",
-        position: "middle",
+        position: "bottom",
         icon: 'person-circle-outline'
       })
       await this.entrar(res)
-      //let preferences: any = await (this.utilService.getFromLocalStorage('user'))
-      //let user = JSON.parse(preferences)
 
     }).catch(error => {
       this.utilService.presentToast({
@@ -187,9 +185,6 @@ export class LoginPage implements OnInit {
   }
 
   async entrar(res: any) {
-    /*let preferences: any = await (this.utilService.getFromLocalStorage('user'))
-    let user = JSON.parse(preferences)
-    console.log(user)*/
     const userInfoSend: NavigationExtras = {
       state: {user: res}
     }

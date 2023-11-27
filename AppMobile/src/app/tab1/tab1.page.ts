@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {IonicModule} from '@ionic/angular';
 import {ExploreContainerComponent} from '../explore-container/explore-container.component';
 import {IUser} from "../models/IUser";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UtilsService} from "../services/utils.service";
+import {FirebaseService} from "../services/firebase.service";
 
 @Component({
   selector: 'app-tab1',
@@ -14,6 +15,8 @@ import {UtilsService} from "../services/utils.service";
 })
 export class Tab1Page {
   data?: IUser
+  firebaseSvc= inject(FirebaseService)
+  utilsSvc= inject(UtilsService)
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -35,7 +38,9 @@ export class Tab1Page {
     });
   }
 
-
-  consolear() {
+  async logOut() {
+    await this.firebaseSvc.logOut()
   }
+
+
 }

@@ -40,6 +40,16 @@ export const routes: Routes = [
           import('../tab1/ver-vehiculos/ver-vehiculos.page').then((m) => m.VerVehiculosPage),
       },
       {
+        path: 'tab1/ver-viajes',
+        loadComponent: () =>
+          import('../tab1/ver-viajes/ver-viajes.page').then((m) => m.VerViajesPage),
+      },
+      {
+        path: 'tab1/informacion-viaje',
+        loadComponent: () =>
+          import('../tab1/informacion-viaje/informacion-viaje.page').then((m) => m.InformacionViajePage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',

@@ -21,10 +21,13 @@
   <ng-template #conductor>
     <ion-row class="ion-text-center">
       <ion-col>
-        <ion-button (click)="crearVehiculo()" shape="round" color="warning">Crear vehículo</ion-button>
+        <ion-button size="small" (click)="crearVehiculo()" shape="round" color="warning">Crear vehículo</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="crearViaje()" shape="round" color="success">Crear viaje</ion-button>
+        <ion-button size="small" (click)="verViajes()" shape="round" color="warning">Ver viajes</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button size="small" (click)="crearViaje()" shape="round" color="success">Crear viaje</ion-button>
       </ion-col>
     </ion-row>
 
@@ -33,7 +36,7 @@
   <ng-template #estudiante>
     <ion-row class="ion-text-center">
       <ion-col>
-        <ion-button shape="round" color="success">Buscar viajes</ion-button>
+        <ion-button (click)="verViajes()" shape="round" color="success">Buscar viajes</ion-button>
       </ion-col>
     </ion-row>
   </ng-template>

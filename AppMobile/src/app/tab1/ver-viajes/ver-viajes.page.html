@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-text-center">
+    <ion-title>
+      <h1>Viajes</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-padding">
+    <ion-row>
+
+    </ion-row>
+
+    <ng-container *ngFor="let viaje of viajes">
+
+
+
+      <ng-template *ngIf="user?.tiene_auto; then conductor; else estudiante"></ng-template>
+      <ng-template #conductor>
+        <div class="ion-margin" style="border: 1px solid white;">
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Asientos disponibles: {{ viaje?.asientos_disp}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Precio del viaje: ${{ viaje?.precio}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Origen: {{viaje?.origen}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Destino: {{viaje?.destino}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-center">
+            <ion-col>
+              <ion-button (click)="informacionViaje(viaje)" size="small" color="success" class="">Información del viaje</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ng-template>
+
+      <ng-template #estudiante>
+
+        <div class="ion-margin" style="border: 1px solid white;">
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Asientos disponibles: {{viaje?.asientos_disp}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Precio del viaje: ${{viaje?.precio}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Origen: {{viaje?.origen}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-left">
+            <ion-col>
+              <h4>Destino: {{viaje?.destino}}
+              </h4>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-text-center">
+            <ion-col>
+              <ion-button (click)="informacionViaje(viaje)" size="small" color="success" class="">Tomar viaje</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ng-template>
+
+    </ng-container>
+  </ion-grid>
+</ion-content>

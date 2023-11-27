@@ -8,6 +8,7 @@ import {FirebaseService} from "../services/firebase.service";
 import {UtilsService} from "../services/utils.service";
 import {CrearViajeComponent} from "../tab1/crear-viaje/crear-viaje.component";
 import {ICar} from "../models/CarModel/ICar";
+import {where} from "firebase/firestore";
 
 @Component({
   selector: 'app-explore-container',
@@ -52,12 +53,6 @@ export class ExploreContainerComponent implements OnInit{
       componentProps: {user: this.user, vehiculos: this.vehiculos}
     })
 
-    /*const userInfoSend: NavigationExtras = {
-      state: {user: this.user}
-    }
-    let sendInfo = (await this.router.navigate(['/tabs/tab1/crear-viaje'], userInfoSend));
-    console.log('sendInfo ', sendInfo)*/
-
   }
 
   async crearVehiculo() {
@@ -66,7 +61,25 @@ export class ExploreContainerComponent implements OnInit{
     }
     let sendInfo = (await this.router.navigate(['/tabs/tab1/crear-vehiculo'], userInfoSend));
     console.log('sendInfo ', sendInfo)
+  }
 
+  async verViajes() {
+    let path = `viajes/`
+    let query = [
+      where('conductor', '==', `${this.user?.uid}`)
+    ]
+    console.log('query', query)
+    let sub = this.firebaseService.getCollectionData(path, '').subscribe({
+      next: async (res: any) => {
+        console.log(res)
+        const userInfoSend: NavigationExtras = {
+          state: {viajes: res}
+        }
+        let sendInfo = (await this.router.navigate(['/tabs/tab1/ver-viajes'], userInfoSend));
+        console.log('sendInfo ', sendInfo)
+        sub.unsubscribe()
+      }
+    })
   }
 
   async verVehiculos() {
@@ -85,6 +98,8 @@ export class ExploreContainerComponent implements OnInit{
     })
 
   }
+
+
 
 
 }
