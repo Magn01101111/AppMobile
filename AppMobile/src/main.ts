@@ -7,7 +7,7 @@ import { getAnalytics } from "firebase/analytics";
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
-import { environment } from './environments/environment';
+import {environment} from './environments/environment.prod';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import {provideFirebaseApp} from "@angular/fire/app";
 import { AngularFireModule} from "@angular/fire/compat";
