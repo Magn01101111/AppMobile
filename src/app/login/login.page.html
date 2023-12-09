@@ -1,0 +1,64 @@
+<ion-header class="ion-padding">
+  <ion-toolbar style="--background: gray">
+    <ion-title>
+      <h1 style="color: yellow">Duoc<span style="color: #1e2023">UC</span></h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="background-image ion-padding">
+  <ion-grid>
+    <ion-row style="padding-top: 10%; padding-bottom: 10%">
+      <ion-col style="text-align: center;">
+        <h1 style="color: white; margin: auto">Inicia Sesión</h1>
+      </ion-col>
+    </ion-row>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+      <div class="borderLogin ion-padding">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-input formControlName="email" name="email" value="jgomez" label="Correo electrónico"
+                         label-placement="floating" placeholder="prueba@duocuc.cl"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-input type="password" formControlName="password" name="password" value="jorge123" label="Contraseña"
+                         label-placement="floating" placeholder="*******"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row style="padding-top: 3vh">
+        <ion-col size="2"></ion-col>
+        <ion-col>
+          <!--<ion-button (click)="userLogin(userLoginModal)" color="primary" shape="round" expand="full"> Iniciar Sesión-->
+          <ion-button type="submit" color="primary" shape="round" expand="full"> Iniciar Sesión
+          </ion-button>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col>
+          <ion-button (click)="registro()" color="secondary" shape="round" expand="full"> Registrate</ion-button>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+      <ion-row class="ion-text-center" style="margin-top: 3vh;">
+        <ion-col size="3"></ion-col>
+        <ion-col size="6">
+          <a (click)="recoverPassword()">Recuperar contraseña </a>
+        </ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+      <!--<ion-row>
+        {{loginForm.value.email}} {{loginForm.value.password}} {{loginForm.valid}}
+      </ion-row>-->
+    </form>
+  </ion-grid>
+</ion-content>
